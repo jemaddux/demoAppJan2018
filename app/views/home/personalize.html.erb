@@ -1,1 +1,30 @@
-personalize
+<h3 class="center">We have a few questions to personalize your experience.</h3>
+
+<h4 class="center">What technologies are you interested in?</h4>
+
+<%= form_for(@user, url: edit_user_personalization_path(@user.id)) do |f| %>
+  <div class="field center">
+    <% @technologies.each do |tech| %>
+      <%= f.check_box :accredited_investor%> 
+      <%= f.label "#{tech.name}" %>
+      <br>
+    <% end %>
+  </div>
+
+  <h4 class="center">What sectors are you interested in?</h4>
+
+  <div class="field center">
+    <% @sectors.each do |sector| %>
+      <%= f.check_box :accredited_investor%> 
+      <%= f.label "#{sector.name}" %>
+      <br>
+    <% end %>
+  </div>
+
+  <h4 class="center">How many angel investments have you made?</h4>
+
+  <div class="actions center">
+    <%= f.submit "Continue" %>
+  </div>
+<% end %>
+

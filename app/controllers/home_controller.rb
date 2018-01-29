@@ -25,5 +25,11 @@ class HomeController < ApplicationController
 
   def personalize
     @user = User.find(params["id"])
+    @technologies = Technology.all
+    @sectors = Sector.all
+  end
+
+  def edit_user_personalization
+    @user = User.find(params["id"])
   end
 end
