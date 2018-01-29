@@ -4,4 +4,34 @@
 
 <h3 class="center">I am investing as:</h3>
 
+<%= form_for(@user, url: edit_user_investor_status_path(@user.id)) do |f| %>
+
+  <ul class="field center">
+    <li>
+      <%= f.radio_button :investing_as, 0, checked: true %>
+      <label>an individual</label>
+    </li>
+
+    <li>
+      <%= f.radio_button :investing_as, 1, checked: false %> 
+      <label>a non-institutional entity
+      (e.g. trusts & personal LLCs)</label>
+    </li>
+    
+    <li>
+      <%= f.radio_button :investing_as, 2, checked: false %> 
+      <label>an institution
+      (e.g. VCs, corporate funds, family offices)</label>
+    </li>
+  </ul>
+
+  <div class="field center">
+    <%= f.check_box :accredited_investor%> I am an accredited investor
+    <p>By joining, you are agreeing to Propel(x)'s Terms of Use and Privacy Policy</p>
+  </div>
+
+  <div class="actions center">
+    <%= f.submit "Investment Objectives Survey" %>
+  </div>
+<% end %>
 
